@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '&ct0#q4#+y14zs#1#9s5_$zpdaa6qfhxgf6^q_+qvy3q6-21y)'
+SECRET_KEY = '9&!1=&&aek@d9-=qd%k9b@rd^-jr5i3tv&xh0e5(v85)a5*4bh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'graphene_django',
 ]
 
 MIDDLEWARE = [
@@ -77,10 +78,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'wedit',
-        'USER': 'postgres',
         'PASSWORD': 'password',
+        'USER': 'postgres',
         'HOST': 'localhost',
-        'PORT': ''
+        'PORT': '',
     }
 }
 
@@ -122,3 +123,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+GRAPHENE = {
+    'SCHEMA': 'wedit.schema.schema',
+}
