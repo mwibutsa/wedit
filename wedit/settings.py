@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'graphene_django',
+    'wedit.apps.profiles',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +127,4 @@ STATIC_URL = '/static/'
 GRAPHENE = {
     'SCHEMA': 'wedit.schema.schema',
 }
+AUTH_USER_MODEL = 'profiles.Profile'
