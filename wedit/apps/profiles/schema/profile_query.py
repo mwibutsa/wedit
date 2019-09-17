@@ -16,10 +16,7 @@ class Query(graphene.ObjectType):
     def resolve_user(self, info, **kwargs):
         username = kwargs.get('username')
         email = kwargs.get('email')
-        if username:
-            return Profile.objects.filter(username=username).first()
-        elif email:
-            return Profile.objects.filter(email=email).first()
-        else:
-            raise GraphQLError(
-                'either email or username is required to get one user.')
+        field, value = ('email', email) if email else (
+            'username', username)
+        kwargs = {f"{field}": value}
+        return Profile.objects.filter(**kwargs).first()
