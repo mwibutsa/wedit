@@ -45,7 +45,7 @@ class Profile(AbstractBaseUser):
     first_name = models.CharField(max_length=60)
     last_name = models.CharField(max_length=60)
     username = models.CharField(unique=True, null=False, max_length=60)
-
+    editor = models.BooleanField(default=False)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
 
@@ -83,3 +83,8 @@ class Profile(AbstractBaseUser):
     def is_active(self):
         """ Check if the user is a member of staff. """
         return self.active
+
+    @property
+    def is_editor(self):
+        """ Check if the user is a member of staff. """
+        return self.editor
