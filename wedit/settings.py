@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'graphene_django',
     'wedit.apps.profiles',
+    'wedit.apps.orders',
 ]
 
 MIDDLEWARE = [

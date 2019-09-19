@@ -1,5 +1,6 @@
 import graphene
 from wedit.apps.profiles.schema import profile_mutation
+from wedit.apps.orders.schema import order_mutation
 from wedit.apps.profiles.schema import profile_query
 import graphql_jwt
 from wedit.apps.profiles.schema import profile_schema
@@ -21,7 +22,11 @@ class ObtainJSONWebTOken(graphql_jwt.JSONWebTokenMutation):
         return self(user=info.context.user)
 
 
-class Mutation(profile_mutation.Mutation, graphene.ObjectType):
+class Mutation(
+        profile_mutation.Mutation,
+        order_mutation.Mutation,
+        graphene.ObjectType
+):
     login = ObtainJSONWebTOken.Field()
     verify_token = graphql_jwt.Verify.Field()
     refresh_token = graphql_jwt.Refresh.Field()

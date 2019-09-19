@@ -1,8 +1,7 @@
 from wedit.apps.profiles.schema.profile_schema import ProfileType
 import graphene
-from graphene_django import DjangoObjectType
 from wedit.apps.profiles.models import Profile
-from graphql import GraphQLError
+from graphql_jwt.decorators import login_required, staff_member_required
 
 
 class Query(graphene.ObjectType):
@@ -10,9 +9,11 @@ class Query(graphene.ObjectType):
     user = graphene.Field(
         ProfileType, username=graphene.String(), email=graphene.String())
 
+    @staff_member_required
     def resolve_users(self, info, **kwargs):
         return Profile.objects.all()
 
+    @login_required
     def resolve_user(self, info, **kwargs):
         username = kwargs.get('username')
         email = kwargs.get('email')

@@ -1,4 +1,3 @@
-from wedit.apps.profiles.schema.profile_schema import ProfileType
 import graphene
 from wedit.apps.profiles.models import Profile
 

@@ -1,5 +1,4 @@
 from wedit.apps.profiles.models import Profile
-import graphene
 from graphene_django import DjangoObjectType
 
 
