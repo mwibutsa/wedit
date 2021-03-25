@@ -20,7 +20,7 @@ PyJWT==1.7.1
 python-coveralls==2.9.3
 python-dateutil==2.8.0
 pytz==2019.2
-PyYAML==5.1.2
+PyYAML==5.4
 requests==2.22.0
 Rx==1.6.1
 singledispatch==3.4.0.3
